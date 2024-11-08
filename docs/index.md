@@ -7,7 +7,7 @@ hide:
   - path
   - title
 ---
-![Workspace ONE UEM](assets/logos/Omnissa_tm_wordmark_CLR-RGB.png){ align=centre }
+<!--- ![Workspace ONE UEM](assets/logos/Omnissa_tm_wordmark_CLR-RGB.png){ align=centre } --->
 
 ## What is the Managed Services Ordering API
 
@@ -35,6 +35,10 @@ You should already have:
 !!!note "Tip"
     Any `{placeholder-text}` are environment variables using Postman's environments. Postman environments can hold your app ids and secret keys and also maintain other variables you want to reuse without having to copy+paste them repeatedly such as your Omnissa Partner ID.
 
+### API & Gateway URLs
+- {base-url} Production: https://apigw.omnissa.com/v2/m4/api/sdp
+- {gateway-url} Production: https://apigw.omnissa.com/v1/m0/application/oauth2/token
+
 ### API Bearer Token Generation
 
 In order to access your environment, use the access tokens generated and provided by Omnissa:
@@ -59,11 +63,11 @@ In order to access your environment, use the access tokens generated and provide
 This API call will list out all active subscriptions under the Cloud Provider's organization and the commit contracts attached.
 
 ```
-  GET: https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions
+  GET: {base-url}/subscriptions
 ```
 
 1. Create a new HTTP request and select the **GET** method type
-2. Paste the url for **GET** Subscriptions API in the url space [https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions](https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions)
+2. Paste the url for **GET** Subscriptions API in the url space [{base-url}/subscriptions]({base-url}/subscriptions)
 3. In the **Authorization** tab set **Type** as `Bearer Token` and put your `access_token` into the Token
 4. Create an entry in the **Header** tab with a Key/Value pair with the following values:
     - Key: `partnerId`
@@ -93,7 +97,7 @@ This API call will list out all active subscriptions under the Cloud Provider's 
             "serviceInstanceId": "M000000000",
             "customerName": "Company EFG",
             "startDate": "2024-03-14T07:00:00.000+00:00",
-            "endDate": "2025-03-05T08:00:00.000+00:00",
+            "endDate": "2025-03-15T08:00:00.000+00:00",
             "offers": [
                 {
                     "quantity": 250,
@@ -140,7 +144,7 @@ This API call will list out all active subscriptions under the Cloud Provider's 
 After successful API call, the response body will contain a request id to track the status of the order and eventually retrieve the order's associated SIDs. In case of any error, message and traceId will be displayed in the response.
 
 ```
-  POST: https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions
+  POST: {base-url}/subscriptions
 ```
 
 To place an initial order:
@@ -207,7 +211,7 @@ If there is a validation error like the one below check that the SKU you are usi
 Successful API call will show either **Pending** or **Success** depending on the status of provisioning based on your request id.
 
 ```
-  GET: https://apigw.omnissa.com/v2/m4/api/sdp/status/{{requestId}}
+  GET: {base-url}/status/{{requestId}}
 ```
 
 To make a status call:
@@ -242,7 +246,7 @@ To make a status call:
 This API call will retrieve information for a single SID under the Cloud Provider's organization.
 
 ```
-  GET: https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/{{SID}}
+  GET: {base-url}/subscriptions/{{SID}}
 ```
 
 1. Create a new HTTP request and select the **GET** method type
@@ -258,7 +262,7 @@ This API call will retrieve information for a single SID under the Cloud Provide
 This API call enables orders that increase the quantity of current subscriptions, use the service instance id (SID) of the initial order to place the add-on order.
 
 ```
-  POST: https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/addon
+  POST: {base-url}/subscriptions/addon
 ```
 
 To make a add-on quantity increase call:
@@ -296,7 +300,7 @@ To make a add-on quantity increase call:
 In order to add secondary add-on to the existing primary use below API. Use the service instance id (SID) of the initial order to place the secondary add-on order.
 
 ```
-  POST: https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/addon
+  POST: {base-url}/subscriptions/addon
 ```
 
 To make a add-on secondary add-on call:
@@ -333,7 +337,7 @@ To make a add-on secondary add-on call:
 This API call allows upgrade of an existing primary subscription using the service instance id (SID) of the primary order. After a successful API call, the response body will include the request id used to track the status of the order. In case of any error, message and traceId will be displayed in the response.
 
 ```
-  POST: https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/upgrade
+  POST: {base-url}/subscriptions/upgrade
 ```
 
 To make an Upgrade call:
@@ -373,7 +377,7 @@ Renewal orders can include:
 - Addition/removal of add-ons
 
 ```
-  POST: https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/renewal
+  POST: {base-url}/subscriptions/renewal
 ```
 
 To make a Renewal call:
@@ -418,7 +422,7 @@ If a renewal request is made prior to the renewal window the error message will 
 Prior to auto renewal, subscriptions can be cancelled within the allowed period using this API call. Note that if the cancellation window is not open then the API call will error out.
 
 ```
-  POST: https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/cancel
+  POST: {base-url}/subscriptions/cancel
 ```
 
 To make a Cancellation call:

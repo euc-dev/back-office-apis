@@ -16,8 +16,9 @@ Partners will be able to create new orders, increase or decrease subscription am
 !!!note
     This documentation uses Postman for all API calls, other options can be used but examples will be based on usage of Postman. [**Postman is free to download**](https://www.postman.com/downloads/) to your PC or you can use the [**web interface**](https://identity.getpostman.com/login?continue=https%3A%2F%2Fgo.postman.co%2Fhome).
 
-
-[link to postman collection](MSPOrderingAPI.yaml)
+### Postman Examples
+- [Production Postman Collection](v2ProdCollection.postman_collection.json)
+- [Production Postman Environment Template](ProdEnv-Template.postman_environment.json)
 
 ## Onboarding to the Managed Services Ordering API
 

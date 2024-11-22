@@ -406,6 +406,16 @@ To make a Renewal call:
   }
 ```
 
+#### Sample Success Request - 200 OK
+
+Once the request is sent successfully it will return a request ID that can be used to check the order status. Renewal orders will remain in a Pending state until the renewal takes place at the end of the current term.
+
+```json
+  {
+    "requestId": "RENEWAL-00000000-0000-0000-0000-000000000000"
+  }
+```
+
 If a renewal request is made prior to the renewal window the error message will read:
 
 #### Sample error - 400 Bad request

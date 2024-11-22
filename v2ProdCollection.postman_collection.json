@@ -1,0 +1,605 @@
+{
+	"info": {
+		"_postman_id": "cc598afa-d38f-43ad-a2c6-db4256d95b70",
+		"name": "v2 Prod Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26374653"
+	},
+	"item": [
+		{
+			"name": "Auth Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = JSON.parse(pm.response.text());",
+							"    pm.environment.set(\"bearer-token\", jsonData.access_token);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{secret-key}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{shared-key}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://apigw.omnissa.com/v1/m0/application/oauth2/token?grant_type=client_credentials",
+					"protocol": "https",
+					"host": [
+						"apigw",
+						"omnissa",
+						"com"
+					],
+					"path": [
+						"v1",
+						"m0",
+						"application",
+						"oauth2",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Subscription",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Order Accepted\", function () {",
+							"    pm.response.to.have.status(200);",
+							"    var jsonData = JSON.parse(pm.response.text());",
+							"    pm.environment.set(\"request-id\", jsonData.requestId);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "partnerId",
+						"value": "{{partner-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"commitContractReference\": \"{{commit-contract}}\",\r\n    \"offers\": [\r\n        {\r\n            \"sku\": \"Replace with SKU\",\r\n            \"quantity\": 12\r\n        }\r\n    ],\r\n    \"endCustomerInfo\": {\r\n        \"customerName\": \"Customer Name\",\r\n        \"firstName\": \"First Name\",\r\n        \"lastName\": \"Last Name\",\r\n        \"email\": \"email Id\",\r\n        \"country\": \"country code\",\r\n        \"zipCode\": \"zip code\",\r\n        \"address1\": \"address1\",\r\n        \"address2\": \"address2\",\r\n        \"address3\": \"address3\",\r\n        \"city\": \"city\",\r\n        \"county\": \"county\",\r\n        \"state\": \"state\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions",
+					"protocol": "https",
+					"host": [
+						"apigw",
+						"omnissa",
+						"com"
+					],
+					"path": [
+						"v2",
+						"m4",
+						"api",
+						"sdp",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add-on Subscription",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "partnerId",
+						"value": "{{partner-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"QUANTITY-INCREASE\",\r\n    \"commitContractReference\": \"{{commit-contract}}\",\r\n    \"serviceInstanceId\":\"Replace with SID\",\r\n    \"offers\": [\r\n        {\r\n            \"sku\": \"Replace with SKU\",\r\n            \"fromQuantity\": 5,\r\n            \"toQuantity\": 25\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/addon",
+					"protocol": "https",
+					"host": [
+						"apigw",
+						"omnissa",
+						"com"
+					],
+					"path": [
+						"v2",
+						"m4",
+						"api",
+						"sdp",
+						"subscriptions",
+						"addon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sec Add-on Subscription",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "partnerId",
+						"value": "{{partner-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"SECONDARY-ADDON\",\r\n    \"commitContractReference\": \"{{commit-contract}}\",\r\n    \"serviceInstanceId\":\"Replace with SID\",\r\n    \"offers\": [\r\n        {\r\n            \"sku\": \"Replace with SKU\",\r\n            \"quantity\": \"25\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/addon",
+					"protocol": "https",
+					"host": [
+						"apigw",
+						"omnissa",
+						"com"
+					],
+					"path": [
+						"v2",
+						"m4",
+						"api",
+						"sdp",
+						"subscriptions",
+						"addon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Upgrade",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "partnerId",
+						"value": "{{partner-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"commitContractReference\": \"{{commit-contract}}\",\r\n    \"serviceInstanceId\": \"Replace with SID\",\r\n    \"offers\": [\r\n        {\r\n            \"quantity\": 24,\r\n            \"fromSku\": \"Replace with from SKU\",\r\n            \"toSku\": \"Replace with To SKU\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/upgrade",
+					"protocol": "https",
+					"host": [
+						"apigw",
+						"omnissa",
+						"com"
+					],
+					"path": [
+						"v2",
+						"m4",
+						"api",
+						"sdp",
+						"subscriptions",
+						"upgrade"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Renewal",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "partnerId",
+						"value": "{{partner-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"commitContractReference\": \"{{commit-contract}}\",\r\n    \"serviceInstanceId\":\"{{sid}}\",\r\n    \"offers\": [\r\n        {\r\n            \"sku\": \"{{renewal-sku}}\",\r\n            \"quantity\": \"{{renewal-quantity}}\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/renewal",
+					"protocol": "https",
+					"host": [
+						"apigw",
+						"omnissa",
+						"com"
+					],
+					"path": [
+						"v2",
+						"m4",
+						"api",
+						"sdp",
+						"subscriptions",
+						"renewal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cancel Subscription",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "partnerId",
+						"value": "{{partner-id}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serviceInstanceId\":\"M\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/cancel",
+					"protocol": "https",
+					"host": [
+						"apigw",
+						"omnissa",
+						"com"
+					],
+					"path": [
+						"v2",
+						"m4",
+						"api",
+						"sdp",
+						"subscriptions",
+						"cancel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Subscription Status",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "partnerId",
+						"value": "{{partner-id}}"
+					}
+				],
+				"url": {
+					"raw": "https://apigw.omnissa.com/v2/m4/api/sdp/status/{{request-id}}",
+					"protocol": "https",
+					"host": [
+						"apigw",
+						"omnissa",
+						"com"
+					],
+					"path": [
+						"v2",
+						"m4",
+						"api",
+						"sdp",
+						"status",
+						"{{request-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Subscriptions",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "partnerId",
+						"value": "{{partner-id}}"
+					}
+				],
+				"url": {
+					"raw": "https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions",
+					"protocol": "https",
+					"host": [
+						"apigw",
+						"omnissa",
+						"com"
+					],
+					"path": [
+						"v2",
+						"m4",
+						"api",
+						"sdp",
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Subscriptions by SID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearer-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "partnerId",
+						"value": "{{partner-id}}"
+					}
+				],
+				"url": {
+					"raw": "https://apigw.omnissa.com/v2/m4/api/sdp/subscriptions/{{sid}}",
+					"protocol": "https",
+					"host": [
+						"apigw",
+						"omnissa",
+						"com"
+					],
+					"path": [
+						"v2",
+						"m4",
+						"api",
+						"sdp",
+						"subscriptions",
+						"{{sid}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,503 @@
+openapi: 3.0.3
+info:
+  title: Omnissa MSP Ordering API
+  description: |-
+    Partners will be able to create new orders, increase or decrease subscription amounts, cancel the subscription at the time of renewal during the period of change for their subscription and increase subscription amount through add-ons at any time during the term using Cloud Provider Mobility Order API
+  termsOfService: https://www.omnissa.com/
+  contact:
+    email: apiteam@swagger.io
+  version: 2.0.0
+externalDocs:
+  description: Getting Started Guide
+  url: http://swagger.io
+servers:
+  - url: https://apigw.omnissa.com/v2/m4/api/sdp
+tags:
+  - name: Customer Lifecycle
+    description: Order mechanisms
+  - name: Insights
+    description: Order & Subscription Insights
+paths:
+  /subscriptions:
+    get:
+      tags:
+        - Insights
+      summary: >-
+        Gets all associated active subscriptions applicable for the Partner
+        making this call
+      operationId: getSubscription
+      responses:
+        '200':
+          $ref: '#/components/responses/GetSubscriptionResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+    post:
+      tags:
+        - Customer Lifecycle
+      summary: Creates an initial subscription order
+      operationId: createSubscription
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SDPSubscriptionRequest'
+      responses:
+        '202':
+          $ref: '#/components/responses/Accepted'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /subscriptions/addon:
+    post:
+      tags:
+        - Customer Lifecycle
+      summary: >-
+        Creates an add on orders (quantity increase to existing offers or new
+        addon offers)
+      operationId: addonSubscription
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SDPAddOnRequest'
+      responses:
+        '202':
+          $ref: '#/components/responses/Accepted'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /subscriptions/upgrade:
+    post:
+      tags:
+        - Customer Lifecycle
+      summary: Upgrade order based on given requst
+      operationId: upgradeSubscription
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SDPUpgradeRequest'
+      responses:
+        '202':
+          $ref: '#/components/responses/Accepted'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /subscriptions/renewal:
+    post:
+      tags:
+        - Customer Lifecycle
+      summary: Renewal order based on given requst
+      operationId: renewalSubscription
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SDPRenewalRequest'
+      responses:
+        '202':
+          $ref: '#/components/responses/Accepted'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /status/{requestId}:
+    get:
+      tags:
+        - Insights
+      summary: Get order status based on requestId
+      parameters:
+        - in: path
+          name: requestId
+          required: true
+          schema:
+            type: string
+      operationId: getStatus
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+  /subscriptions/cancel:
+    post:
+      tags:
+        - Customer Lifecycle
+      summary: >-
+        Canels the subscription at the end of the term. Updates the renewal
+        preference to opt-out.
+      operationId: updateRenewalPreference
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRenewalReference'
+      responses:
+        '202':
+          $ref: '#/components/responses/Accepted'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /subscriptions/{sid}:
+    get:
+      tags:
+        - Insights
+      summary: >-
+        Get active subscription detail associated by SID applicable for the
+        Partner making this call
+      parameters:
+        - in: path
+          name: sid
+          required: true
+          schema:
+            type: string
+      operationId: getSubscriptionBySid
+      responses:
+        '200':
+          $ref: '#/components/responses/GetSubscriptionBySidResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  schemas:
+    SDPSubscriptionRequest:
+      type: object
+      required:
+        - commitContractReference
+        - offers
+        - endCustomerInfo
+      properties:
+        commitContractReference:
+          type: string
+          example: GEOXXXXXMOBILITY
+          description: >-
+            CommitContractReference number to determine the environment this
+            subscription need to be provisioned and for billing.
+        offers:
+          type: array
+          description: List of offers
+          items:
+            $ref: '#/components/schemas/Offer'
+        endCustomerInfo:
+          type: object
+          required:
+            - customerName
+            - firstName
+            - lastName
+            - email
+            - country
+            - zipCode
+          properties:
+            customerName:
+              type: string
+              example: Test Company
+              description: End customer company name
+            firstName:
+              type: string
+              example: John
+              description: Firstname of Customer's primary contact
+            lastName:
+              type: string
+              example: Smith
+              description: LastName of Customer's primary contact
+            email:
+              type: string
+              example: jsmith@testco.com
+              description: Email of Customer's primary contact
+            country:
+              type: string
+              example: US
+              description: Customer's country
+            zipCode:
+              type: string
+              description: Customer's postal code
+            address1:
+              type: string
+            address2:
+              type: string
+            address3:
+              type: string
+            city:
+              type: string
+            county:
+              type: string
+            state:
+              type: string
+    Offer:
+      type: object
+      properties:
+        sku:
+          type: string
+          example: WSD-AWOAP-12MT0-C1S
+        quantity:
+          type: integer
+          example: 5
+    SDPAddOnRequest:
+      type: object
+      required:
+        - type
+        - commitContractReference
+        - serviceInstanceId
+      properties:
+        type:
+          type: string
+          enum:
+            - QUANTITY-INCREASE
+            - SECONDARY-ADDON
+          description: field to indicate if this is a quantity increase or secondary addon
+        commitContractReference:
+          type: string
+          example: GEOXXXXXMOBILITY
+          description: >-
+            CommitContractReference number to determine the environment this
+            subscription need to be provisioned and for billing.
+        serviceInstanceId:
+          type: string
+          example: M123456789
+          description: >-
+            Subscription unique identifier, as provided during subscription
+            creation
+        offers:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddOnOffer'
+    AddOnOffer:
+      type: object
+      properties:
+        sku:
+          type: string
+          example: WSD-AWOAP-12MT0-C1S
+          description: >-
+            New Addon SKU in case of secondary addon, existing primary sku in
+            case of expanision.
+        quantity:
+          type: integer
+          example: 5
+          description: Required in case of a new secondary addon purchase
+        fromQuantity:
+          type: string
+          example: 7
+          description: Required in case of a expanding existing offer
+        toQuantity:
+          type: string
+          example: 10
+          description: Required in case of a expanding existing offer
+    SDPUpgradeRequest:
+      type: object
+      required:
+        - commitContractReference
+        - serviceInstanceId
+      properties:
+        commitContractReference:
+          type: string
+          example: GEOXXXXXMOBILITY
+          description: >-
+            CommitContractReference number to determine the environment this
+            subscription need to be provisioned and for billing.
+        serviceInstanceId:
+          type: string
+          example: M123456789
+          description: >-
+            Subscription unique identifier, as provided during subscription
+            creation
+        offers:
+          type: array
+          items:
+            $ref: '#/components/schemas/UpgradeOffer'
+    UpgradeOffer:
+      type: object
+      required:
+        - fromSku
+        - toSku
+        - quantity
+      properties:
+        fromSku:
+          type: string
+          description: current offer SKU which is must be upgraded
+        toSku:
+          type: string
+          description: the offer to which the current offer need to be upgraded.
+        quantity:
+          type: string
+          description: upgrade quantity
+    SDPRenewalRequest:
+      type: object
+      required:
+        - commitContractReference
+        - serviceInstanceId
+      properties:
+        commitContractReference:
+          type: string
+          example: GEOXXXXXMOBILITY
+          description: >-
+            CommitContractReference number to determine the environment this
+            subscription need to be provisioned and for billing.
+        serviceInstanceId:
+          type: string
+          example: M123456789
+          description: >-
+            Subscription unique identifier, as provided during subscription
+            creation
+        offers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Offer'
+    ErrorMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Description of the error
+        error:
+          type: string
+          description: Unique code representing the error
+        traceId:
+          type: string
+          description: >-
+            traceId to help the find the related logs in the system which
+            returned the error
+      required:
+        - message
+    StatusResponse:
+      type: object
+      required:
+        - status
+        - serviceInstanceId
+      properties:
+        status:
+          type: string
+          enum:
+            - SUCCESS
+            - PENDING
+            - ERROR
+        serviceInstanceId:
+          type: string
+          example: M123456789
+          description: >-
+            Subscription unique identifier, as provided during subscription
+            creation
+        message:
+          type: string
+          description: Message in case of ERROR
+        groupId:
+          type: string
+          example: Radi1234
+        environmentIdentifier:
+          type: string
+          example: CN123
+    UpdateRenewalReference:
+      type: object
+      required:
+        - commitContractReference
+        - serviceInstanceId
+      properties:
+        serviceInstanceId:
+          type: string
+          example: M123456789
+          description: >-
+            Subscription unique identifier, as provided during subscription
+            creation
+    Subscription:
+      type: object
+      required:
+        - customerName
+        - commitContractReference
+        - serviceInstanceId
+      properties:
+        commitContractReference:
+          type: string
+          example: GEOXXXXXMOBILITY
+          description: >-
+            CommitContractReference number to determine the environment this
+            subscription need to be provisioned and for billing.
+        serviceInstanceId:
+          type: string
+          example: M123456789
+          description: >-
+            Subscription unique identifier, as provided during subscription
+            creation
+        customerName:
+          type: string
+          example: Test Company
+          description: End customer company name
+        startDate:
+          type: string
+          example: '2023-05-15 00:00:00'
+          description: Current term subscription start date
+        endDate:
+          type: string
+          example: '2024-05-15 00:00:00'
+          description: Current term subscription end date
+        offers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Offer'
+  responses:
+    Accepted:
+      description: >-
+        Request is accepted and queued for processing.  RequestId in the
+        response can be used in the GET status API to check the status of the
+        transaction.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              requestId:
+                type: string
+                example: abfbad9b-9ce7-0004-8d85-915c27c867d3
+                description: requestId with which status of this request can be retrieved.
+    BadRequest:
+      description: Invalid payload or action
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'
+    ServerError:
+      description: Unexpected server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'
+    GetSubscriptionResponse:
+      description: Active subscriptions of the partner
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - subscriptions
+            properties:
+              subscriptions:
+                type: array
+                description: List of subscriptions
+                items:
+                  $ref: '#/components/schemas/Subscription'
+    GetSubscriptionBySidResponse:
+      description: Active subscription details for associated SID
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Subscription'

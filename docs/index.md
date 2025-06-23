@@ -237,8 +237,9 @@ To make a status call:
 
 ```json
   {
-	"serviceInstanceId": "M000000000",
-    "status": "SUCCESS"
+    "serviceInstanceId": "M000000000",
+    "status": "SUCCESS",
+    "groupId": "Group1111"
   }
 ```
 

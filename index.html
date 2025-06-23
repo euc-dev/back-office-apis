@@ -1,0 +1,1332 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Omnissa Cloud Provider Mobility Order API Information" name="description"/>
+<meta content="Alex Marlette" name="author"/>
+<link href="https://back-office-apis.github.io/" rel="canonical"/>
+<link href="assets/logos/favicon-light.svg" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Omnissa Partner Managed Services Ordering API - Omnissa Partner Services</title>
+<link href="assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2020c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208m0-18A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202m1%205h-2v4H7v2h4v4h2v-4h4v-2h-4z%22/%3E%3C/svg%3E');}</style>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Outfit:300,300i,400,400i,700,700i%7CPoppins:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Outfit";--md-code-font:"Poppins"}</style>
+<link href="css/timeago.css" rel="stylesheet"/>
+<link href="assets/stylesheets/extra.css" rel="stylesheet"/>
+<link href="assets/stylesheets/style.dqahRzu8.css" rel="stylesheet"/>
+<link href="assets/stylesheets/mkdocsoad.css" rel="stylesheet"/>
+<link href="assets/stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
+<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="neon" data-md-color-primary="dark-shade-blue" data-md-color-scheme="omnissa" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#what-is-the-managed-services-ordering-api">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Omnissa Partner Services" class="md-header__button md-logo" data-md-component="logo" href="https://omnissa.com" title="Omnissa Partner Services">
+<img alt="logo" src="assets/logos/favicon-dark.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Omnissa Partner Services
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Omnissa Partner Managed Services Ordering API
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden="">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Omnissa Partner Services" class="md-nav__button md-logo" data-md-component="logo" href="https://omnissa.com" title="Omnissa Partner Services">
+<img alt="logo" src="assets/logos/favicon-dark.svg"/>
+</a>
+    Omnissa Partner Services
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Omnissa Partner Managed Services Ordering API
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href=".">
+<span class="md-ellipsis">
+    Omnissa Partner Managed Services Ordering API
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-the-managed-services-ordering-api">
+<span class="md-ellipsis">
+      What is the Managed Services Ordering API
+    </span>
+</a>
+<nav aria-label="What is the Managed Services Ordering API" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#postman-examples">
+<span class="md-ellipsis">
+      Postman Examples
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#onboarding-to-the-managed-services-ordering-api">
+<span class="md-ellipsis">
+      Onboarding to the Managed Services Ordering API
+    </span>
+</a>
+<nav aria-label="Onboarding to the Managed Services Ordering API" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisite">
+<span class="md-ellipsis">
+      Prerequisite
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-gateway-urls">
+<span class="md-ellipsis">
+      API &amp; Gateway URLs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-bearer-token-generation">
+<span class="md-ellipsis">
+      API Bearer Token Generation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-call-walkthrough">
+<span class="md-ellipsis">
+      API Call Walkthrough
+    </span>
+</a>
+<nav aria-label="API Call Walkthrough" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#get-subscriptions">
+<span class="md-ellipsis">
+      Get Subscriptions
+    </span>
+</a>
+<nav aria-label="Get Subscriptions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-response-body">
+<span class="md-ellipsis">
+      Sample response body
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#new-order">
+<span class="md-ellipsis">
+      New Order
+    </span>
+</a>
+<nav aria-label="New Order" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-success-response">
+<span class="md-ellipsis">
+      Sample success response
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-error-response">
+<span class="md-ellipsis">
+      Sample error response
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#order-status">
+<span class="md-ellipsis">
+      Order Status
+    </span>
+</a>
+<nav aria-label="Order Status" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pending-status-response">
+<span class="md-ellipsis">
+      Pending status response
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#success-response">
+<span class="md-ellipsis">
+      Success response
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#get-individual-sid-information">
+<span class="md-ellipsis">
+      Get Individual SID Information
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#add-on-subscription-quantity-increase">
+<span class="md-ellipsis">
+      Add-On Subscription (Quantity Increase)
+    </span>
+</a>
+<nav aria-label="Add-On Subscription (Quantity Increase)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload_1">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#add-on-subscription-secondary-add-on">
+<span class="md-ellipsis">
+      Add-On Subscription (SECONDARY ADD-ON)
+    </span>
+</a>
+<nav aria-label="Add-On Subscription (SECONDARY ADD-ON)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload_2">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#upgrade-subscription">
+<span class="md-ellipsis">
+      Upgrade Subscription
+    </span>
+</a>
+<nav aria-label="Upgrade Subscription" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload_3">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#manual-renewal">
+<span class="md-ellipsis">
+      Manual Renewal
+    </span>
+</a>
+<nav aria-label="Manual Renewal" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload_4">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-success-request-200-ok">
+<span class="md-ellipsis">
+      Sample Success Request - 200 OK
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-error-400-bad-request">
+<span class="md-ellipsis">
+      Sample error - 400 Bad request
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cancel-subscription">
+<span class="md-ellipsis">
+      Cancel subscription
+    </span>
+</a>
+<nav aria-label="Cancel subscription" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload_5">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-error-400-bad-request_1">
+<span class="md-ellipsis">
+      Sample error - 400 Bad request
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-the-managed-services-ordering-api">
+<span class="md-ellipsis">
+      What is the Managed Services Ordering API
+    </span>
+</a>
+<nav aria-label="What is the Managed Services Ordering API" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#postman-examples">
+<span class="md-ellipsis">
+      Postman Examples
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#onboarding-to-the-managed-services-ordering-api">
+<span class="md-ellipsis">
+      Onboarding to the Managed Services Ordering API
+    </span>
+</a>
+<nav aria-label="Onboarding to the Managed Services Ordering API" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisite">
+<span class="md-ellipsis">
+      Prerequisite
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-gateway-urls">
+<span class="md-ellipsis">
+      API &amp; Gateway URLs
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-bearer-token-generation">
+<span class="md-ellipsis">
+      API Bearer Token Generation
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-call-walkthrough">
+<span class="md-ellipsis">
+      API Call Walkthrough
+    </span>
+</a>
+<nav aria-label="API Call Walkthrough" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#get-subscriptions">
+<span class="md-ellipsis">
+      Get Subscriptions
+    </span>
+</a>
+<nav aria-label="Get Subscriptions" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-response-body">
+<span class="md-ellipsis">
+      Sample response body
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#new-order">
+<span class="md-ellipsis">
+      New Order
+    </span>
+</a>
+<nav aria-label="New Order" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-success-response">
+<span class="md-ellipsis">
+      Sample success response
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-error-response">
+<span class="md-ellipsis">
+      Sample error response
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#order-status">
+<span class="md-ellipsis">
+      Order Status
+    </span>
+</a>
+<nav aria-label="Order Status" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pending-status-response">
+<span class="md-ellipsis">
+      Pending status response
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#success-response">
+<span class="md-ellipsis">
+      Success response
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#get-individual-sid-information">
+<span class="md-ellipsis">
+      Get Individual SID Information
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#add-on-subscription-quantity-increase">
+<span class="md-ellipsis">
+      Add-On Subscription (Quantity Increase)
+    </span>
+</a>
+<nav aria-label="Add-On Subscription (Quantity Increase)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload_1">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#add-on-subscription-secondary-add-on">
+<span class="md-ellipsis">
+      Add-On Subscription (SECONDARY ADD-ON)
+    </span>
+</a>
+<nav aria-label="Add-On Subscription (SECONDARY ADD-ON)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload_2">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#upgrade-subscription">
+<span class="md-ellipsis">
+      Upgrade Subscription
+    </span>
+</a>
+<nav aria-label="Upgrade Subscription" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload_3">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#manual-renewal">
+<span class="md-ellipsis">
+      Manual Renewal
+    </span>
+</a>
+<nav aria-label="Manual Renewal" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload_4">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-success-request-200-ok">
+<span class="md-ellipsis">
+      Sample Success Request - 200 OK
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-error-400-bad-request">
+<span class="md-ellipsis">
+      Sample error - 400 Bad request
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cancel-subscription">
+<span class="md-ellipsis">
+      Cancel subscription
+    </span>
+</a>
+<nav aria-label="Cancel subscription" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-payload_5">
+<span class="md-ellipsis">
+      Sample payload
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-error-400-bad-request_1">
+<span class="md-ellipsis">
+      Sample error - 400 Bad request
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>Omnissa Partner Managed Services Ordering API</h1>
+<!--- ![Workspace ONE UEM](assets/logos/Omnissa_tm_wordmark_CLR-RGB.png){ align=centre } --->
+<h2 id="what-is-the-managed-services-ordering-api">What is the Managed Services Ordering API<a class="headerlink" href="#what-is-the-managed-services-ordering-api" title="Permanent link">¶</a></h2>
+<p>Partners will be able to create new orders, increase or decrease subscription amounts, cancel the subscription at the time of renewal during the period of change for their subscription and increase subscription amount through add-ons at any time during the term using Cloud Provider Mobility Order API</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This documentation uses Postman for all API calls, other options can be used but examples will be based on usage of Postman. <a href="https://www.postman.com/downloads/"><strong>Postman is free to download</strong></a> to your PC or you can use the <a href="https://identity.getpostman.com/login?continue=https%3A%2F%2Fgo.postman.co%2Fhome"><strong>web interface</strong></a>.</p>
+</div>
+<h3 id="postman-examples">Postman Examples<a class="headerlink" href="#postman-examples" title="Permanent link">¶</a></h3>
+<ul>
+<li><a href="v2ProdCollection.postman_collection.json">Production Postman Collection</a></li>
+<li><a href="ProdEnv-Template.postman_environment.json">Production Postman Environment Template</a></li>
+</ul>
+<h2 id="onboarding-to-the-managed-services-ordering-api">Onboarding to the Managed Services Ordering API<a class="headerlink" href="#onboarding-to-the-managed-services-ordering-api" title="Permanent link">¶</a></h2>
+<p>Once you receive your credentials from your Partner Account team or the Omnissa Operations team you can get started with your first authentication call. This will have to be done at the beginning of every session and times out after 7500 seconds. The same authentication scheme <code>Authorization: Bearer</code> is required for all API calls.</p>
+<h3 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">¶</a></h3>
+<p>You should already have:</p>
+<ul>
+<li>app-id (ie shared key)</li>
+<li>secret-id (ie secret key)</li>
+<li>Partner ID</li>
+<li>commit contract (ex GEO00000MOBILITY)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Tip</p>
+<p>Any <code>{placeholder-text}</code> are environment variables using Postman's environments. Postman environments can hold your app ids and secret keys and also maintain other variables you want to reuse without having to copy+paste them repeatedly such as your Omnissa Partner ID.</p>
+</div>
+<h3 id="api-gateway-urls">API &amp; Gateway URLs<a class="headerlink" href="#api-gateway-urls" title="Permanent link">¶</a></h3>
+<ul>
+<li>{base-url} Production: https://apigw.omnissa.com/v2/m4/api/sdp</li>
+<li>{gateway-url} Production: https://apigw.omnissa.com/v1/m0/application/oauth2/token</li>
+</ul>
+<h3 id="api-bearer-token-generation">API Bearer Token Generation<a class="headerlink" href="#api-bearer-token-generation" title="Permanent link">¶</a></h3>
+<p>In order to access your environment, use the access tokens generated and provided by Omnissa:</p>
+<ol>
+<li>Create a new <strong>POST</strong> request with the URL <a href="https://apigw.omnissa.com/v1/m0/application/oauth2/token">https://apigw.omnissa.com/v1/m0/application/oauth2/token</a></li>
+<li>Select <code>Basic Auth</code> in the <strong>Authorization</strong> tab then fill the username and password with the keys as shown below:<ul>
+<li>Username: <code>{ app-id }</code></li>
+<li>Password: <code>{ app-secret }</code></li>
+</ul>
+</li>
+<li>In the <strong>Params</strong> tab create a Key/Value pairs with the following values:<ul>
+<li>Key: <code>grant_type</code></li>
+<li>Value: <code>client_credentials</code></li>
+</ul>
+</li>
+<li>Set the <code>Content-Type</code> header of this <strong>POST</strong> request to none.</li>
+<li>Select Send to make the API call, upon success your <code>access_token</code> will appear in the <code>Response</code> portion of the page.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">REQUIRED</p>
+<p>For any API call other than the authorization call, in the Authorization tab set Type as Bearer Token and put your <code>access_token</code> into the Token. API calls will not work without this.</p>
+</div>
+<h2 id="api-call-walkthrough">API Call Walkthrough<a class="headerlink" href="#api-call-walkthrough" title="Permanent link">¶</a></h2>
+<h3 id="get-subscriptions">Get Subscriptions<a class="headerlink" href="#get-subscriptions" title="Permanent link">¶</a></h3>
+<p>This API call will list out all active subscriptions under the Cloud Provider's organization and the commit contracts attached.</p>
+<div class="highlight"><pre><span></span><code>  GET: {base-url}/subscriptions
+</code></pre></div>
+<ol>
+<li>Create a new HTTP request and select the <strong>GET</strong> method type</li>
+<li>Paste the url for <strong>GET</strong> Subscriptions API in the url space <a href="{base-url}/subscriptions">{base-url}/subscriptions</a></li>
+<li>In the <strong>Authorization</strong> tab set <strong>Type</strong> as <code>Bearer Token</code> and put your <code>access_token</code> into the Token</li>
+<li>Create an entry in the <strong>Header</strong> tab with a Key/Value pair with the following values:<ul>
+<li>Key: <code>partnerId</code></li>
+<li>Value: <code>{Omnissa Partner ID}</code></li>
+</ul>
+</li>
+<li>Press <strong>SEND</strong> to view a list of all active subscriptions under the Cloud Provider's Commit Contract</li>
+</ol>
+<h4 id="sample-response-body">Sample response body<a class="headerlink" href="#sample-response-body" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"commitContractReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMER00000MOBILITY"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"serviceInstanceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M000000000"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"customerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company ABC"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-02-16T08:00:00.000+00:00"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-02-15T08:00:00.000+00:00"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSU-ASUPSPSSP-12MT0-C1S"</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"commitContractReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMER00000OBILITY"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"serviceInstanceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M000000000"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"customerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company EFG"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-03-14T07:00:00.000+00:00"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-03-15T08:00:00.000+00:00"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSD-AWOAP-12PT0-C1S"</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSD-AWOSP-12PT0-C1S"</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"commitContractReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMER00000MOBILITY"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"serviceInstanceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M000000000"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"customerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company HIJ"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-02-16T08:00:00.000+00:00"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-02-15T08:00:00.000+00:00"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSD-AWOSP-12MT0-C2S"</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"commitContractReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMER00000MOBILITY"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"serviceInstanceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M000000000"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"customerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company LMN"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-03-30T07:00:00.000+00:00"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2024-03-29T07:00:00.000+00:00"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span>
+<span class="w">                    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSU-AWOAB-12MT0-C1S"</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">     </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="new-order">New Order<a class="headerlink" href="#new-order" title="Permanent link">¶</a></h3>
+<p>After successful API call, the response body will contain a request id to track the status of the order and eventually retrieve the order's associated SIDs. In case of any error, message and traceId will be displayed in the response.</p>
+<div class="highlight"><pre><span></span><code>  POST: {base-url}/subscriptions
+</code></pre></div>
+<p>To place an initial order:</p>
+<ol>
+<li>Create a new HTTP request and select the <strong>POST</strong> method type and paste the URL</li>
+<li>In the <strong>Authorization</strong> tab set <strong>Type</strong> as <code>Bearer Token</code> and put your <code>access_token</code> into the <strong>Token</strong></li>
+<li>Create an entry in the <strong>Header</strong> tab with a Key/Value pair with the following values:<ul>
+<li>Key: <code>partnerId</code></li>
+<li>Value: <code>{Omnissa Partner ID}</code></li>
+</ul>
+</li>
+<li>Paste the sample request payload in the <strong>Body</strong> tab with raw and JSON selected. Replace the end customer information accordingly, the API Specifications at the bottom of this guide have more details for which fields are required.
+   <strong>Note:</strong> More than one product (both primary, secondary add-ons) can be ordered</li>
+<li>Press <strong>SEND</strong> to submit your order and receive the request id for your order</li>
+</ol>
+<h4 id="sample-payload">Sample payload<a class="headerlink" href="#sample-payload" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"commitContractReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMER00000MOBILITY"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"endCustomerInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"customerName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXXXXXX@XXXX.com"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"94943"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"address1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"590 E Middlefield Road"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mountain View"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"county"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSD-AWOSP-12PT0-C1S"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<p>Upon success you will get a <code>requestId</code>, the <code>requestId</code> can be used to check the status of an order using Order Status API call.</p>
+<h4 id="sample-success-response">Sample success response<a class="headerlink" href="#sample-success-response" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"requestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bfa000d0-00ae-00d1-00bb-dac0d0f000ee"</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<p>If there is a validation error like the one below check that the SKU you are using is correct and attached to your commit contract.</p>
+<h4 id="sample-error-response">Sample error response<a class="headerlink" href="#sample-error-response" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VALIDATION FAILED"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Edition Code is required field and cannot be empty"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"traceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="order-status">Order Status<a class="headerlink" href="#order-status" title="Permanent link">¶</a></h3>
+<p>Successful API call will show either <strong>Pending</strong> or <strong>Success</strong> depending on the status of provisioning based on your request id.</p>
+<div class="highlight"><pre><span></span><code>  GET: {base-url}/status/{{requestId}}
+</code></pre></div>
+<p>To make a status call:</p>
+<ol>
+<li>Create a new HTTP request and select the <strong>GET</strong> method type and paste the URL</li>
+<li>In the <strong>Authorization</strong> tab set <strong>Type</strong> as <code>Bearer Token</code> and put your <code>access_token</code> into the Token</li>
+<li>Create an entry in the <strong>Header</strong> tab with a Key/Value pair with the following values:<ul>
+<li>Key: <code>partnerId</code></li>
+<li>Value: <code>{Omnissa Partner ID}</code></li>
+</ul>
+</li>
+<li>Use the <code>requestId</code> generated from a new order as the <code>requestId</code> in the API call</li>
+<li>In the <strong>Body</strong> tab set to <strong>none</strong></li>
+<li>Once the call is made you will get one of two statuses <strong>PENDING</strong> or <strong>SUCCESS</strong> shown below. When the status is <strong>SUCCESS</strong> a SID will be listed, use the service instance id (SID) to place other orders like add-on (increase in quantity or new secondary add-on), upgrade, renewal or cancellation</li>
+</ol>
+<h4 id="pending-status-response">Pending status response<a class="headerlink" href="#pending-status-response" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h4 id="success-response">Success response<a class="headerlink" href="#success-response" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"serviceInstanceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M000000000"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"groupId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group1111"</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="get-individual-sid-information">Get Individual SID Information<a class="headerlink" href="#get-individual-sid-information" title="Permanent link">¶</a></h3>
+<p>This API call will retrieve information for a single SID under the Cloud Provider's organization.</p>
+<div class="highlight"><pre><span></span><code>  GET: {base-url}/subscriptions/{{SID}}
+</code></pre></div>
+<ol>
+<li>Create a new HTTP request and select the <strong>GET</strong> method type</li>
+<li>In the <strong>Authorization</strong> tab set <strong>Type</strong> as <code>Bearer Token</code> and put your <code>access_token</code> into the Token</li>
+<li>Create an entry in the <strong>Header</strong> tab with a Key/Value pair with the following values:<ul>
+<li>Key: <code>partnerId</code></li>
+<li>Value: <code>{Omnissa Partner ID}</code></li>
+</ul>
+</li>
+<li>In the Body make select the <strong>none</strong> radio button</li>
+<li>Press SEND to view a list of all active subscriptions under the Cloud Provider's Commit Contract</li>
+</ol>
+<h3 id="add-on-subscription-quantity-increase">Add-On Subscription (Quantity Increase)<a class="headerlink" href="#add-on-subscription-quantity-increase" title="Permanent link">¶</a></h3>
+<p>This API call enables orders that increase the quantity of current subscriptions, use the service instance id (SID) of the initial order to place the add-on order.</p>
+<div class="highlight"><pre><span></span><code>  POST: {base-url}/subscriptions/addon
+</code></pre></div>
+<p>To make a add-on quantity increase call:</p>
+<ol>
+<li>Create a new HTTP request and select the <strong>GET</strong> method type</li>
+<li>In the <strong>Authorization</strong> tab set <strong>Type</strong> as <code>Bearer Token</code> and put your <code>access_token</code> into the Token</li>
+<li>Create an entry in the <strong>Header</strong> tab with a Key/Value pair with the following values:<ul>
+<li>Key: <code>partnerId</code></li>
+<li>Value: <code>{Omnissa Partner ID}</code></li>
+</ul>
+</li>
+<li>Use the SID generated from a new order as the <code>serviceInstanceId</code> in the API call, the Body needs to be set to raw and contain<ul>
+<li><code>type: "QUANTITY-INCREASE"</code></li>
+<li>the commit contract attached to your org as <code>commitContractReference: {commit-contract}</code></li>
+<li>Offers that you would like to increase and the quantity from which you are increasing</li>
+</ul>
+</li>
+<li>Once the call is made you will get a requestId to track the order status</li>
+</ol>
+<h4 id="sample-payload_1">Sample payload<a class="headerlink" href="#sample-payload_1" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"QUANTITY-INCREASE"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"commitContractReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMER00000MOBILITY"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"serviceInstanceId"</span><span class="p">:</span><span class="s2">"MXXXXXXXXX"</span><span class="p">,</span><span class="w"> </span><span class="c1">//serviceInstanceId: Provisioned SID of the Initial Order</span>
+<span class="w">    </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSD-AWOSP-12PT0-C1S"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"fromQuantity"</span><span class="p">:</span><span class="w"> </span><span class="err">XX</span><span class="p">,</span><span class="w"> </span><span class="c1">//fromQuantity: Existing QTY for the SKU.</span>
+<span class="w">            </span><span class="nt">"toQuantity"</span><span class="p">:</span><span class="w"> </span><span class="err">XX</span><span class="w"> </span><span class="c1">//toQuantity: Requested QTY for the SKU.</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="add-on-subscription-secondary-add-on">Add-On Subscription (SECONDARY ADD-ON)<a class="headerlink" href="#add-on-subscription-secondary-add-on" title="Permanent link">¶</a></h3>
+<p>In order to add secondary add-on to the existing primary use below API. Use the service instance id (SID) of the initial order to place the secondary add-on order.</p>
+<div class="highlight"><pre><span></span><code>  POST: {base-url}/subscriptions/addon
+</code></pre></div>
+<p>To make a add-on secondary add-on call:</p>
+<ol>
+<li>Create a new HTTP request and select the <strong>GET</strong> method type</li>
+<li>In the <strong>Authorization</strong> tab set <strong>Type</strong> as <code>Bearer Token</code> and put your <code>access_token</code> into the Token</li>
+<li>Create an entry in the <strong>Header</strong> tab with a Key/Value pair with the following values:<ul>
+<li>Key: <code>partnerId</code></li>
+<li>Value: <code>{Omnissa Partner ID}</code></li>
+</ul>
+</li>
+<li>Use the SID generated from a new order as the <code>serviceInstanceId</code> in the API call, the Body needs to be set to raw and contain</li>
+<li><code>type: "SECONDARY-ADDON"</code></li>
+<li>the commit contract attached to your org as <code>commitContractReference: {commit-contract}</code></li>
+<li>Offers that you would like to add to your existing subscription</li>
+<li>After successful API call, in response body we receive request id to track the status of the order. In case of any error, message and traceId will be displayed in the response.</li>
+</ol>
+<h4 id="sample-payload_2">Sample payload<a class="headerlink" href="#sample-payload_2" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SECONDARY-ADDON"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"commitContractReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMER00000MOBILITY"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"serviceInstanceId"</span><span class="p">:</span><span class="s2">"MXXXXXXXX"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSD-ABXAP-12PT0-C1S"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="upgrade-subscription">Upgrade Subscription<a class="headerlink" href="#upgrade-subscription" title="Permanent link">¶</a></h3>
+<p>This API call allows upgrade of an existing primary subscription using the service instance id (SID) of the primary order. After a successful API call, the response body will include the request id used to track the status of the order. In case of any error, message and traceId will be displayed in the response.</p>
+<div class="highlight"><pre><span></span><code>  POST: {base-url}/subscriptions/upgrade
+</code></pre></div>
+<p>To make an Upgrade call:</p>
+<ol>
+<li>Create a new HTTP request and select the <strong>GET</strong> method type</li>
+<li>In the <strong>Authorization</strong> tab set <strong>Type</strong> as <code>Bearer Token</code> and put your <code>access_token</code> into the Token</li>
+<li>Create an entry in the <strong>Header</strong> tab with a Key/Value pair with the following values:<ul>
+<li>Key: <code>partnerId</code></li>
+<li>Value: <code>{Omnissa Partner ID}</code></li>
+</ul>
+</li>
+<li>Paste the sample request payload in the Body tab with raw and JSON selected. Replace the information accordingly to reflect which SID is being targeted for renewal and what the renewal payload should be prior to sending</li>
+<li>Upon a successful call a request id will be returned to track the order</li>
+</ol>
+<h4 id="sample-payload_3">Sample payload<a class="headerlink" href="#sample-payload_3" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"commitContractReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMER00000MOBILITY"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"serviceInstanceId"</span><span class="p">:</span><span class="s2">"MXXXXXXXX"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"fromSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSD-AWOSP-12PT0-C1S"</span><span class="p">,</span><span class="w"> </span><span class="c1">//WS1 Standard 12 month Pre-paid</span>
+<span class="w">            </span><span class="nt">"toSku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSD-AWOAP-12PT0-C1S"</span><span class="p">,</span><span class="w"> </span><span class="c1">//to WS1 Advanced 12 month Pre-paid</span>
+<span class="w">            </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="manual-renewal">Manual Renewal<a class="headerlink" href="#manual-renewal" title="Permanent link">¶</a></h3>
+<p>This API call allows a renewal order to be made within the allowed renewal period. Use the service instance id (SID) of the primary order to place the upgrade order. The updated quantity will take effect upon the next billing cycle. After a successful API call, the response body will include the request id used to track the status of the order. In case of any error, message and traceId will be displayed in the response. Note that if the renewal window is not open then the API call will error out.</p>
+<p>Renewal orders can include:</p>
+<ul>
+<li>Increase/Decrease quantity of a single SKUs for a single customer at time of renewal</li>
+<li>Increase/Decrease quantity of multiple SKUs for a single customer at time of renewal</li>
+<li>Change of base SKU</li>
+<li>Addition/removal of add-ons</li>
+</ul>
+<div class="highlight"><pre><span></span><code>  POST: {base-url}/subscriptions/renewal
+</code></pre></div>
+<p>To make a Renewal call:</p>
+<ol>
+<li>Create a new HTTP request and select the <strong>GET</strong> method type</li>
+<li>In the <strong>Authorization</strong> tab set <strong>Type</strong> as <code>Bearer Token</code> and put your <code>access_token</code> into the Token</li>
+<li>Create an entry in the <strong>Header</strong> tab with a Key/Value pair with the following values:<ul>
+<li>Key: <code>partnerId</code></li>
+<li>Value: <code>{Omnissa Partner ID}</code></li>
+</ul>
+</li>
+<li>Paste the sample request payload in the Body tab with raw and JSON selected. Replace the information accordingly to reflect which SID is being targeted for renewal and what the renewal payload should be prior to sending</li>
+<li>Upon a successful call a request id will be returned to track the order</li>
+</ol>
+<h4 id="sample-payload_4">Sample payload<a class="headerlink" href="#sample-payload_4" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"commitContractReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMER00000MOBILITY"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"serviceInstanceId"</span><span class="p">:</span><span class="s2">"MXXXXXXXX"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WSD-AWOAP-12PT0-C1S"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h4 id="sample-success-request-200-ok">Sample Success Request - 200 OK<a class="headerlink" href="#sample-success-request-200-ok" title="Permanent link">¶</a></h4>
+<p>Once the request is sent successfully it will return a request ID that can be used to check the order status. Renewal orders will remain in a Pending state until the renewal takes place at the end of the current term.</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"requestId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RENEWAL-00000000-0000-0000-0000-000000000000"</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<p>If a renewal request is made prior to the renewal window the error message will read:</p>
+<h4 id="sample-error-400-bad-request">Sample error - 400 Bad request<a class="headerlink" href="#sample-error-400-bad-request" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"traceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_REQUEST"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Renewal allowed only during last 30 days of active term"</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="cancel-subscription">Cancel subscription<a class="headerlink" href="#cancel-subscription" title="Permanent link">¶</a></h3>
+<p>Prior to auto renewal, subscriptions can be cancelled within the allowed period using this API call. Note that if the cancellation window is not open then the API call will error out.</p>
+<div class="highlight"><pre><span></span><code>  POST: {base-url}/subscriptions/cancel
+</code></pre></div>
+<p>To make a Cancellation call:</p>
+<ol>
+<li>Create a new HTTP request and select the <strong>POST</strong> method type and paste the URL</li>
+<li>In the <strong>body</strong>, include the SID of the selected subscription as shown in the sample payload</li>
+<li>Once the call is made you will get a 202 Accepted for a successful request</li>
+</ol>
+<h4 id="sample-payload_5">Sample payload<a class="headerlink" href="#sample-payload_5" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"serviceInstanceId"</span><span class="p">:</span><span class="s2">"MXXXXXXXX"</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<h4 id="sample-error-400-bad-request_1">Sample error - 400 Bad request<a class="headerlink" href="#sample-error-400-bad-request_1" title="Permanent link">¶</a></h4>
+<p>If a cancellation request is made prior to the cancellation window the error message will read:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"traceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000000000"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INVALID_REQUEST"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancellation allowed only during last 30 days of active term"</span>
+<span class="w">  </span><span class="p">}</span>
+</code></pre></div>
+<p><iframe class="swagger-ui-iframe" frameborder="0" id="7d7958cd" onload="this.style.display = 'block'; this.style.overflow = 'hidden'; this.style.width = '100%';" src="swagger-7d7958cd.html" style="display:none;" width="100%"></iframe></p>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+</head>
+<body>
+<link href="style.dqahRzu8.css" rel="stylesheet"/>
+<footer class="_site_footer_1g6q0_1">
+<div class="_footer_top_1g6q0_20">
+<div class="_row_1g6q0_35 container">
+<div class="_cl_left_1g6q0_54">
+<div class="_footer_logo_1g6q0_62">
+<a aria-label="Omnissa logo, go to the homepage" class="footer-link astro-ialbhntz" href="/">
+<!-- <svg xmlns="http://www.w3.org/2000/svg" width="188.164" height="33.563" data-name="Logo Dark Background" viewBox="0 0 188.164 33.563" data-icon="omnissa-logo">
+                <title>Omnissa logo</title>
+                <use xlink:href="#icon-omnissa-logo"></use>
+              </svg> -->
+<svg data-icon="omnissa-logo" data-name="Logo Dark Background" height="33.563" viewbox="0 0 188.164 33.563" width="188.164" xmlns="http://www.w3.org/2000/svg">
+<title>Omnissa logo</title>
+<symbol id="icon-omnissa-logo">
+<g data-name="Group 66152">
+<circle cx="2.682" cy="2.682" data-name="Ellipse 1437" fill="currentColor" r="2.682" transform="translate(99.229)"></circle>
+<g data-name="Group 66150">
+<g data-name="Group 66149" fill="currentColor">
+<path d="M33.685 8.518v4.812a9.94 9.94 0 0 1 9.189-5.285 9.4 9.4 0 0 1 5.127 1.38 7.07 7.07 0 0 1 2.958 3.9 9.95 9.95 0 0 1 3.865-3.9 11.2 11.2 0 0 1 5.561-1.38 9.8 9.8 0 0 1 3.51.592 7.6 7.6 0 0 1 2.682 1.7 7.3 7.3 0 0 1 1.735 2.682 9.7 9.7 0 0 1 .631 3.471v16.283H64.25V16.209a8.8 8.8 0 0 0-1.38-5.285 4.83 4.83 0 0 0-4.141-1.854 6.87 6.87 0 0 0-5.324 2.13 8.22 8.22 0 0 0-1.972 5.758v15.815h-4.698V16.209a8.57 8.57 0 0 0-1.42-5.324 5.04 5.04 0 0 0-4.22-1.854 6.29 6.29 0 0 0-5.364 2.564c-1.262 1.7-1.893 4.141-1.893 7.3v13.8h-4.653V8.518Z" data-name="Path 108776"></path>
+<path d="M77.379 13.172a10.02 10.02 0 0 1 8.992-5.127 8.62 8.62 0 0 1 6.31 2.287 8.17 8.17 0 0 1 2.366 6.113v16.289h-4.654V16.209a8.27 8.27 0 0 0-1.459-5.285 5.09 5.09 0 0 0-4.22-1.854 6.39 6.39 0 0 0-5.364 2.682 11.96 11.96 0 0 0-1.972 7.217l.039 13.8h-4.652V8.518h4.654Z" data-name="Path 108777"></path>
+<path d="M99.663 8.519h4.654v24.216h-4.654z" data-name="Rectangle 18880"></path>
+<path d="M108.655 14.745c0-4.457 2.958-6.7 8.834-6.7a25.6 25.6 0 0 1 5.955.631 8.86 8.86 0 0 1 4.141 2.011v6.034a12.8 12.8 0 0 0-4.338-6.074 10.26 10.26 0 0 0-6.153-2.011 7.3 7.3 0 0 0-4.141.986 3.07 3.07 0 0 0-1.5 2.721 3.83 3.83 0 0 0 1.578 3.037 16 16 0 0 0 5.206 2.445c1.341.434 2.642.828 3.9 1.223a15.4 15.4 0 0 1 3.352 1.5 7.2 7.2 0 0 1 2.366 2.248 6.16 6.16 0 0 1 .868 3.431 6.09 6.09 0 0 1-2.485 5.206c-1.656 1.223-4.062 1.854-7.178 1.854a28.3 28.3 0 0 1-6.389-.631 9.46 9.46 0 0 1-4.332-2.011v-6.31a12.86 12.86 0 0 0 4.457 6.231 11.4 11.4 0 0 0 6.862 2.209 8 8 0 0 0 4.535-1.144 3.35 3.35 0 0 0 1.735-2.879 3.3 3.3 0 0 0-.789-2.207 8 8 0 0 0-2.011-1.538 13.5 13.5 0 0 0-2.564-1.065c-.907-.276-1.735-.552-2.485-.789a35.5 35.5 0 0 1-4.417-1.656 11 11 0 0 1-2.879-1.814 5.8 5.8 0 0 1-1.578-2.169 6.5 6.5 0 0 1-.55-2.769" data-name="Path 108778"></path>
+<path d="M132.436 14.745c0-4.457 2.958-6.7 8.834-6.7a25.6 25.6 0 0 1 5.955.631 8.86 8.86 0 0 1 4.141 2.011v6.034a12.8 12.8 0 0 0-4.338-6.074 10.26 10.26 0 0 0-6.153-2.011 7.3 7.3 0 0 0-4.141.986 3.07 3.07 0 0 0-1.5 2.721 3.83 3.83 0 0 0 1.578 3.037 16 16 0 0 0 5.206 2.445c1.341.434 2.642.828 3.9 1.223a15.4 15.4 0 0 1 3.352 1.5 7.2 7.2 0 0 1 2.366 2.248 6.16 6.16 0 0 1 .868 3.431 6.09 6.09 0 0 1-2.485 5.206c-1.656 1.223-4.062 1.854-7.178 1.854a28.3 28.3 0 0 1-6.389-.631 9.1 9.1 0 0 1-4.331-2.011v-6.31a12.86 12.86 0 0 0 4.457 6.231 11.4 11.4 0 0 0 6.862 2.209 8 8 0 0 0 4.535-1.144 3.35 3.35 0 0 0 1.735-2.879 3.3 3.3 0 0 0-.789-2.207 8 8 0 0 0-2.011-1.538 13.5 13.5 0 0 0-2.564-1.065c-.907-.276-1.735-.552-2.485-.789a35.5 35.5 0 0 1-4.417-1.656 11 11 0 0 1-2.879-1.814 5.8 5.8 0 0 1-1.577-2.169 6.5 6.5 0 0 1-.552-2.769" data-name="Path 108779"></path>
+<path d="M155.942 27.252a5.16 5.16 0 0 1 1.025-3.352 7.4 7.4 0 0 1 2.682-2.011 21.4 21.4 0 0 1 3.707-1.3c1.341-.355 2.721-.71 4.062-1.1a23 23 0 0 0 3.786-1.459 7.6 7.6 0 0 0 2.879-2.327q0-3.668-1.538-5.443a5.97 5.97 0 0 0-4.772-1.775 7.1 7.1 0 0 0-2.918.631 9.5 9.5 0 0 0-2.721 1.775 14.7 14.7 0 0 0-2.366 2.879 20.2 20.2 0 0 0-1.814 3.826v-6.31a10.8 10.8 0 0 1 4.338-2.445 19.8 19.8 0 0 1 5.876-.828c3.431 0 6.034.71 7.809 2.169a7.56 7.56 0 0 1 2.682 6.271V28.79c0 1.972.592 2.918 1.814 2.918a2.01 2.01 0 0 0 1.7-.947c-.517 1.618-1.779 2.445-3.751 2.445a4.4 4.4 0 0 1-3.155-1.025 5.1 5.1 0 0 1-1.262-3.234 10.7 10.7 0 0 1-4.259 3.116 14.3 14.3 0 0 1-5.561 1.143c-5.482.041-8.243-1.97-8.243-5.954m4.89-.316a4.88 4.88 0 0 0 1.459 3.786 5.35 5.35 0 0 0 3.944 1.38 8.1 8.1 0 0 0 5.758-1.972 6.93 6.93 0 0 0 2.09-5.364v-8.36a8.7 8.7 0 0 1-2.564 2.287 17.6 17.6 0 0 1-2.918 1.341c-.986.355-1.933.67-2.879.986a10.3 10.3 0 0 0-2.485 1.144 5.9 5.9 0 0 0-1.775 1.775 5.75 5.75 0 0 0-.63 2.998Z" data-name="Path 108780"></path>
+</g>
+</g>
+<g data-name="Group 66151" fill="currentColor">
+<path d="M6.389 27.174a11.32 11.32 0 0 1-1.38-14.356 11.35 11.35 0 1 0 15.736 15.736 11.32 11.32 0 0 1-14.356-1.38" data-name="Path 108781"></path>
+<path d="M6.389 11.122a11.3 11.3 0 0 0-1.38 1.7 11.335 11.335 0 0 1 15.736 15.732A11.345 11.345 0 1 0 6.389 11.122" data-name="Path 108782"></path>
+</g>
+</g>
+<g data-name="Group 66153">
+<path d="M180.237 8.362V7.77h3.273v.592Zm1.3 3.431v-3.9h.671v3.9Zm2.6 0V7.77h.473l1.7 2.761h-.315l1.7-2.761h.473v4.023h-.67V8.914l.158.039-1.223 2.051h-.473l-1.223-2.051.158-.039v2.879z" data-name="Path 108783" fill="currentColor"></path>
+</g>
+</symbol>
+<use xlink:href="#icon-omnissa-logo"></use>
+</svg>
+</a>
+</div>
+<div>
+<ul class="_social_icons_1g6q0_67">
+<li>
+<a aria-label="Follow Omnissa on LinkedIn, opens in a new tab" class="footer-link astro-ialbhntz" href="https://www.linkedin.com/company/omnissa/" target="_blank">
+<svg class="_linkedin_1g6q0_115" data-icon="linkedin-icon" height="22.609" viewbox="0 0 23.845 22.609" width="23.845" xmlns="http://www.w3.org/2000/svg">
+<title>Follow Omnissa on LinkedIn</title>
+<symbol id="icon-linkedin-icon">
+<path d="M2.939 5.364a2.82 2.82 0 0 0 2.938-2.681A2.82 2.82 0 0 0 2.939 0 2.82 2.82 0 0 0 0 2.684a2.82 2.82 0 0 0 2.939 2.681M.673 22.607h5.271v-15.2H.673ZM13.343 14.154c0-1.743.825-3.448 2.8-3.448s2.457 1.7 2.457 3.407v8.3h5.248v-8.641c0-6-3.549-7.039-5.733-7.039s-3.385.738-4.769 2.526V7.212H8.08v15.2h5.263Z" fill="currentColor" fill-rule="evenodd"></path>
+</symbol>
+<use xlink:href="#icon-linkedin-icon"></use>
+</svg>
+</a>
+</li>
+<li>
+<a aria-label="Follow Omnissa on Facebook, opens in a new tab" class="footer-link astro-ialbhntz" href="https://www.facebook.com/WeAreOmnissa" target="_blank">
+<svg class="_facebook_1g6q0_111" data-icon="facebook-icon" height="23.591" viewbox="0 0 10.296 23.591" width="10.296" xmlns="http://www.w3.org/2000/svg">
+<title>Follow Omnissa on Facebook</title>
+<symbol id="icon-facebook-icon">
+<path d="M2.147 23.591H6.44V11.8h3.22l.637-3.684H6.44V5.448c0-.861.556-1.764 1.352-1.764h2.192V0H7.3v.017C3.1.17 2.233 2.604 2.158 5.161H2.15v2.957H0V11.8h2.147Z" fill="currentColor" fill-rule="evenodd"></path>
+</symbol>
+<use xlink:href="#icon-facebook-icon"></use>
+</svg>
+</a>
+</li>
+<li>
+<a aria-label="Follow Omnissa on Youtube, opens in a new tab" class="footer-link astro-ialbhntz" href="https://www.youtube.com/@WeAreOmnissa" target="_blank">
+<svg class="undefined" data-icon="footer-youtube-icon" height="15.146" viewbox="0 0 21.672 15.146" width="21.672" xmlns="http://www.w3.org/2000/svg">
+<title>Follow Omnissa on YouTube</title>
+<symbol id="icon-footer-youtube-icon">
+<path d="M11.125 15.146c-1.868 0-3.746-.042-5.288-.119a24 24 0 0 1-3.469-.34 2.71 2.71 0 0 1-1.915-1.914A24 24 0 0 1 0 7.557a26 26 0 0 1 .439-5.175A2.71 2.71 0 0 1 2.354.468 51 51 0 0 1 10.687 0a51 51 0 0 1 8.59.454 2.71 2.71 0 0 1 1.914 1.914 16 16 0 0 1 .366 2.369c.078.877.117 1.825.115 2.817a26 26 0 0 1-.467 5.218 2.71 2.71 0 0 1-1.915 1.914 20.5 20.5 0 0 1-3.259.348 97 97 0 0 1-4.906.112M8.734 4.324v6.492l5.66-3.246z" data-name="Subtraction 1" fill="currentColor"></path>
+</symbol>
+<use xlink:href="#icon-footer-youtube-icon"></use>
+</svg>
+</a>
+</li>
+<li>
+<a aria-label="Follow Omnissa on Twitter, opens in a new tab" class="footer-link astro-ialbhntz" href="https://twitter.com/WeAreOmnissa" target="_blank">
+<svg class="undefined" data-icon="footer-x-icon" height="16.756" viewbox="0 0 16.742 16.756" width="16.742" xmlns="http://www.w3.org/2000/svg">
+<title>Follow Omnissa on Twitter</title>
+<symbol id="icon-footer-x-icon">
+<path d="M9.965 7.1 16.2 0h-1.478L9.308 6.16 4.986 0H0l6.537 9.316L0 16.756h1.477l5.714-6.506 4.565 6.507h4.986M2.01 1.09h2.268l10.443 14.629h-2.269" fill="currentColor"></path>
+</symbol>
+<use xlink:href="#icon-footer-x-icon"></use>
+</svg>
+</a>
+</li>
+</ul>
+</div>
+<div class="_copyright_1g6q0_118" tabindex="0"> © 2024 Omnissa, LLC 590 E Middlefield Road, Mountain View CA 94043 All Rights Reserved. </div>
+</div>
+<div class="_cl_right_1g6q0_125">
+<div class="_footer_menu_1g6q0_134">
+<div class="_footer-col_1g6q0_150">
+<div class="_inner_col_1g6q0_171 _product_col_1g6q0_187">
+<h4 class="_widget_title_1g6q0_201"> Offerings </h4>
+<ul class="_footer_menu_lists_1g6q0_224">
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/platform/"> Omnissa Platform </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/products/#platform-services"> Platform Services </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/products/"> Products </a>
+</li>
+</ul>
+</div>
+<div class="_inner_col_1g6q0_171 _solution_col_1g6q0_197">
+<h4 class="_widget_title_1g6q0_201"> Resources </h4>
+<ul class="_footer_menu_lists_1g6q0_224">
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/insights/#Blog"> Blog </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/partners/"> Partners </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/omnissa-security-response/"> Security Response </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/trust-center/"> Trust Center </a>
+</li>
+</ul>
+</div>
+</div>
+<div class="_footer_inner_col_1g6q0_218">
+<div class="_inner_col_1g6q0_171 _support_col_1g6q0_192">
+<h4 class="_widget_title_1g6q0_201"> Company </h4>
+<ul class="_footer_menu_lists_1g6q0_224">
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/about-us/"> About </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/insights/#News"> News </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/careers/"> Careers </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/contact-us/"> Contact Us </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="_footer_bottom_1g6q0_241">
+<div class="container">
+<div class="_footer_details_1g6q0_261">
+<ul class="_info_list_1g6q0_266">
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/trust-center/"> Trust Center </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/legal-center/"> Legal Center </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/trust-center/#privacy-notices"> Privacy Notice </a>
+</li>
+<li class="_lists_1g6q0_224">
+<a class="footer-link astro-ialbhntz" href="https://www.omnissa.com/general-terms/" target="_blank"> Terms &amp; Conditions </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": ".", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.top", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+<script src="js/timeago.min.js"></script>
+<script src="js/timeago_mkdocs_material.js"></script>
+<script src="assets/javascripts/tablesort.min.js"></script>
+<script src="assets/javascripts/tablesort.js"></script>
+<script src="js/open_in_new_tab.js"></script>
+<script>document$.subscribe(() => {
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+            let ticking = false;
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        
+            const dark_scheme_name = "slate"
+            
+            const schemeAttr = document.body.getAttribute("data-md-color-scheme");
+            const isMediaPrefersScheme = document.body.getAttribute("data-md-color-media") === "(prefers-color-scheme: dark)";
+
+            if (!isMediaPrefersScheme) {
+                window.__init_is_dark_mode = (schemeAttr === dark_scheme_name);
+            } else {
+                const computedScheme = window.getComputedStyle(document.body).getPropertyValue('color-scheme');
+                window.__init_is_dark_mode = computedScheme === "dark";
+            }
+            const options = {
+                attributeFilter: ['data-md-color-scheme'],
+            };
+            function color_scheme_callback(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.attributeName === "data-md-color-scheme") {
+                        scheme = document.body.getAttribute("data-md-color-scheme")
+                        var iframe_list = document.getElementsByClassName("swagger-ui-iframe")
+                        for(var i = 0; i < iframe_list.length; i++) {
+                            var ele = iframe_list.item(i);
+                            if (ele) {
+                                if (scheme === dark_scheme_name) {
+                                    ele.contentWindow.enable_dark_mode();
+                                } else {
+                                    ele.contentWindow.disable_dark_mode();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            observer = new MutationObserver(color_scheme_callback);
+            observer.observe(document.body, options);
+            })</script></body>
+</html>

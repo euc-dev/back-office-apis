@@ -398,9 +398,6 @@ components:
           description: >-
             Subscription unique identifier, as provided during subscription
             creation
-        message:
-          type: string
-          description: Message in case of ERROR
         groupId:
           type: string
           example: Radi1234
